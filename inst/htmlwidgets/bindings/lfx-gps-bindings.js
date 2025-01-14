@@ -13,10 +13,7 @@ LeafletWidget.methods.addControlGPS = function(options) {
     map.gpscontrol.on('gps:locationfound', function(e) {
       // Shiny stuff
       if (!HTMLWidgets.shinyMode) return;
-      Shiny.onInputChange(map.id + '_gps_located', {
-        'coordinates': e.latlng,
-        'radius': e.marker._radius
-      });
+      Shiny.onInputChange(map.id + '_gps_located', eventToShiny(e));
     });
     map.gpscontrol.on('gps:disabled', function() {
       // Shiny stuff
