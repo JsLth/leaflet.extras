@@ -10,7 +10,7 @@ LeafletWidget.methods.addControlGPS = function(options) {
 
     map.gpscontrol = new L.Control.Gps(options);
 
-    map.gpscontrol.on('gps:located', function(e) {
+    map.gpscontrol.on('gps:locationfound', function(e) {
       // Shiny stuff
       if (!HTMLWidgets.shinyMode) return;
       Shiny.onInputChange(map.id + '_gps_located', {
